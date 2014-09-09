@@ -1,7 +1,9 @@
 apply plugin: 'java'
+apply plugin: 'application'
 
 sourceCompatibility = 1.5
 version = '0.1'
+mainClassName = "org.javafbp.runtime.Runtime"
 
 repositories {
     mavenCentral()
@@ -17,6 +19,8 @@ sourceSets {
         }
     }
 }
+
+
 
 dependencies {
     compile 'org.json:json:20090211'
