@@ -6,7 +6,6 @@ child_process = require 'child_process'
 EventEmitter = (require 'events').EventEmitter
 
 websocket = require 'websocket'
-needle = require 'needle'
 
 # TODO: move into library, also use in MicroFlo and other FBP runtime implementations?
 class MockUi extends EventEmitter
