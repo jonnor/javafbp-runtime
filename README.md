@@ -17,10 +17,10 @@ Milestone 0.1: minimally useful
 
 * Fix network excecution blocking main thread, should execute in background
 * Add proper commandline arguments for port, library path, runtime registry etc
-* Implement redirection of stdout/stderr, for showing in IDE
-* Implement introspection of data passing through edges
 * Implement support for multiple graphs
 * Implement stopping of networks
+* Implement redirection of stdout/stderr, for showing in IDE
+* Implement introspection of data passing through edges
 
 Later
 

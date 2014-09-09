@@ -1,0 +1,40 @@
+{
+  "name": "javafbp-runtime",
+  "version": "0.0.1",
+  "description": "JavaFBP runtime",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --compilers .coffee:coffee-script/register ./spec/*.coffee"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jonnor/javafbp-runtime.git"
+  },
+  "keywords": [
+    "FBP",
+    "Java",
+    "JavaFBP",
+    "Flowhub"
+  ],
+  "author": "Jon Nordby <jononor@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jonnor/javafbp-runtime/issues"
+  },
+  "homepage": "https://github.com/jonnor/javafbp-runtime",
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "dependencies": {
+    "async": "^0.7.0",
+    "coffee-script": "^1.7.1",
+    "request": "^2.36.0",
+    "websocket": "~1.0.8"
+  },
+  "devDependencies": {
+    "chai": "~1.8.0",
+    "js-yaml": "^3.0.2",
+    "jsftp": "^1.3.1",
+    "mocha": "~1.9.0"
+  }
+}
