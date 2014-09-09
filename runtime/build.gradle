@@ -1,0 +1,29 @@
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+version = '0.1'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {
+    main {
+        java {
+            srcDir 'src/'
+        }
+        resources {
+            srcDir 'src/resources'
+        }
+    }
+}
+
+dependencies {
+    compile 'org.json:json:20090211'
+    compile 'org.java-websocket:Java-WebSocket:1.3.0'
+
+    // FIXME: remove when on Maven Central, https://github.com/jpaulm/javafbp/issues/5
+    compile files('lib/javafbp-2.9.jar')
+
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
