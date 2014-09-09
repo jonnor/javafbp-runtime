@@ -522,7 +522,9 @@ final public class Runtime {
                 } catch (Exception e) {
                     System.err.println("Unable to start network");
                     e.printStackTrace();
+                    return;
                 }
+                sendFbpResponse("network", "started", new JSONObject(), socket);
 
             } else {
                 System.err.println("Unknown FBP protocol message: " + protocol + ":" + command);
@@ -622,7 +624,7 @@ final public class Runtime {
 
             String userId = System.getenv().get("FLOWHUB_USER_ID");
             if (userId == null) {
-                System.err.println("Warning: Missing FLOWHUB_USER_ID envvar, cannot register");
+                System.out.println("Warning: Missing FLOWHUB_USER_ID envvar, cannot register");
             } else {
                 final String address = "ws://"+host+":"+port;
                 String runtimeId = System.getenv().get("JAVAFBP_RUNTIME_ID");
@@ -635,11 +637,13 @@ final public class Runtime {
                 FlowhubRegistryPingTask pinger = FlowhubRegistryPingTask.setup(api, runtimeId);
             }
             WebSocketImpl.DEBUG = false;
-            Server s = new Server(port, lib);
-            s.start();
+            final Server s = new Server(port, lib);
+            final Thread t = new Thread(s);
+            t.start();
             System.out.println("Listening on port: " + s.getPort());
+            t.join();
+            System.exit(0);
         }
-
     }
 
 }
