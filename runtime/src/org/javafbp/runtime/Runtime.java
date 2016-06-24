@@ -21,6 +21,8 @@ import org.java_websocket.handshake.*;
 import org.java_websocket.server.*;
 import org.java_websocket.util.Base64;
 import org.json.*;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.drafts.Draft;
 
 final public class Runtime {
 
@@ -568,7 +570,12 @@ final public class Runtime {
         public void onError( WebSocket conn, Exception ex ) {
             ex.printStackTrace();
         }
-
+        @Override
+        public ServerHandshakeBuilder onWebsocketHandshakeReceivedAsServer( WebSocket conn, Draft draft, ClientHandshake request ) throws InvalidDataException {
+            ServerHandshakeBuilder handshake = super.onWebsocketHandshakeReceivedAsServer( conn, draft, request );
+            handshake.put("Sec-WebSocket-Protocol", "noflo");
+            return handshake;
+        }
     }
 
     static public class FlowhubRegistryPingTask extends TimerTask {
